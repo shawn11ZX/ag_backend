@@ -127,4 +127,85 @@ public class TodoControllerIT {
                 new Customization("id", (o1, o2) -> true), new Customization("createdAt", (o1, o2) -> true)));
     }
 
+    @Test
+    public void testPatchOK() throws JSONException {
+
+        ResponseEntity<String> responseAdd = helper.requestHttp("{\n" +
+                "  \"text\": \"Uulwi ifis halahs gag erh'ongg w'ssh.\"\n" +
+                "}", "/todo/", HttpMethod.POST);
+        JSONObject todoItem = (JSONObject)JSONParser.parseJSON(responseAdd.getBody()) ;
+        Integer id = todoItem.getInt("id");
+        String date = todoItem.getString("createdAt");
+        ResponseEntity<String> response = helper.requestHttp("{\n" +
+                "  \"text\": \"aabbccdd\",\n" +
+                "  \"isCompleted\": true\n" +
+                "}", "/todo/" + id, HttpMethod.PATCH);
+
+        String expected = "{\n" +
+                "  \"id\": " + id + ",\n" +
+                "  \"text\": \"aabbccdd\",\n" +
+                "  \"isCompleted\": true,\n" +
+                "  \"createdAt\": \"" +date+"\"\n" +
+                "}";
+
+        Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+        String obj = response.getBody();
+        JSONAssert.assertEquals(expected, obj, new CustomComparator(JSONCompareMode.LENIENT));
+    }
+
+    @Test
+    public void testPatchInvalid() throws JSONException {
+
+        ResponseEntity<String> responseAdd = helper.requestHttp("{\n" +
+                "  \"text\": \"Uulwi ifis halahs gag erh'ongg w'ssh.\"\n" +
+                "}", "/todo/", HttpMethod.POST);
+        JSONObject todoItem = (JSONObject)JSONParser.parseJSON(responseAdd.getBody()) ;
+        Integer id = todoItem.getInt("id");
+        String date = todoItem.getString("createdAt");
+        ResponseEntity<String> response = helper.requestHttp("{\n" +
+                "  \"text\": \"\",\n" +
+                "  \"isCompleted\": true\n" +
+                "}", "/todo/" + id, HttpMethod.PATCH);
+
+        String expected = "{\n" +
+                "  \"details\": [\n" +
+                "    {\n" +
+                "      \"location\": \"params\",\n" +
+                "      \"param\": \"text\",\n" +
+                "      \"msg\": \"Must be between 1 and 50 chars long\",\n" +
+                "      \"value\": \"\"\n" +
+                "    }\n" +
+                "  ],\n" +
+                "  \"name\": \"ValidationError\"\n" +
+                "}";
+
+        Assert.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        String obj = response.getBody();
+        JSONAssert.assertEquals(expected, obj, new CustomComparator(JSONCompareMode.LENIENT));
+    }
+
+    @Test
+    public void testPatchNotFound() throws JSONException {
+
+
+        ResponseEntity<String> response = helper.requestHttp("{\n" +
+                "  \"text\": \"aaa\",\n" +
+                "  \"isCompleted\": true\n" +
+                "}", "/todo/9", HttpMethod.PATCH);
+
+        String expected = "{\n" +
+                "  \"details\": [\n" +
+                "    {\n" +
+                "      \"message\": \"Item with 9 not found\"\n" +
+                "    }\n" +
+                "  ],\n" +
+                "  \"name\": \"NotFoundError\"\n" +
+                "}";
+
+        Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        String obj = response.getBody();
+        JSONAssert.assertEquals(expected, obj, new CustomComparator(JSONCompareMode.LENIENT));
+    }
+
+
 }
