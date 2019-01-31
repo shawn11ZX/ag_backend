@@ -1,8 +1,9 @@
 # Swagger Back End Demo by Shawn Change
 
 ## General
-GitHub: https://github.com/shawn11ZX/auto_general_backend
-AWS address: http://swagger-dev.us-west-2.elasticbeanstalk.com/, e.g. http://swagger-dev.us-west-2.elasticbeanstalk.com/tasks/validateBrackets?input=aaa
+- GitHub: https://github.com/shawn11ZX/auto_general_backend
+- AWS address: http://swagger-dev.us-west-2.elasticbeanstalk.com/, 
+	e.g. http://swagger-dev.us-west-2.elasticbeanstalk.com/tasks/validateBrackets?input=aaa
 
 ## Build
 - cd to project directory
