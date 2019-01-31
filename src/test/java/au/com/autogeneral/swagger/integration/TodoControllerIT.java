@@ -23,11 +23,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RunWith(SpringRunner.class)
-@EnableAutoConfiguration
-
-@ContextConfiguration(classes = {
-        ValidationAdvice.class, TodoRepository.class})
-@SpringBootTest(classes = TodoController.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 
 public class TodoControllerIT {
 

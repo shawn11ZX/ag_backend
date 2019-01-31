@@ -17,10 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RunWith(SpringRunner.class)
-@EnableAutoConfiguration
-@SpringBootTest(classes = ValidateBracketsController.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ContextConfiguration(classes = {
-        ValidationAdvice.class })
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ValidateBracketsControllerIT {
 
     @LocalServerPort
