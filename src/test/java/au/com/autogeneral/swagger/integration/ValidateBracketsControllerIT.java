@@ -1,7 +1,9 @@
-package au.com.autogeneral.swagger;
+package au.com.autogeneral.swagger.integration;
 
-import au.com.autogeneral.swagger.validation.controller.ValidateBracketsController;
+import au.com.autogeneral.swagger.error.ValidationAdvice;
+import au.com.autogeneral.swagger.validation.ValidateBracketsController;
 import org.json.JSONException;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -9,16 +11,16 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RunWith(SpringRunner.class)
 @EnableAutoConfiguration
 @SpringBootTest(classes = ValidateBracketsController.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ContextConfiguration(classes = {
+        ValidationAdvice.class })
 public class ValidateBracketsControllerIT {
 
     @LocalServerPort
@@ -45,6 +47,7 @@ public class ValidateBracketsControllerIT {
                 "  \"isBalanced\": false\n" +
                 "}";
 
+        Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
         String obj = response.getBody();
         JSONAssert.assertEquals(expected, obj, false);
     }
@@ -73,6 +76,7 @@ public class ValidateBracketsControllerIT {
                 "  \"name\": \"ValidationError\"\n" +
                 "}";
 
+        Assert.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         String obj = response.getBody();
         JSONAssert.assertEquals(expected, obj, false);
     }

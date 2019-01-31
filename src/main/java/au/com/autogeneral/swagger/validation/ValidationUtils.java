@@ -1,4 +1,4 @@
-package au.com.autogeneral.swagger.validation.model;
+package au.com.autogeneral.swagger.validation;
 
 import java.util.Stack;
 

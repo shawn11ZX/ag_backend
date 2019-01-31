@@ -1,23 +1,23 @@
 package au.com.autogeneral.swagger.bean;
 
-public class ErrorResult implements IValidationResult {
-    private ErrorDetail[] details;
+public class ValidationError {
+    private ValidationErrorDetail[] details;
     private String name;
 
-    public ErrorResult(ErrorDetail[] details, String name) {
+    public ValidationError(ValidationErrorDetail[] details, String name) {
         this.details = details;
         this.name = name;
     }
 
-    public ErrorResult() {
+    public ValidationError() {
 
     }
 
-    public ErrorDetail[] getDetails() {
+    public ValidationErrorDetail[] getDetails() {
         return details;
     }
 
-    public void setDetails(ErrorDetail[] details) {
+    public void setDetails(ValidationErrorDetail[] details) {
         this.details = details;
     }
 

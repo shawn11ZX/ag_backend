@@ -1,15 +1,15 @@
 package au.com.autogeneral.swagger.bean;
 
-public class ErrorDetail {
+public class ValidationErrorDetail {
     private String location;
     private String param;
     private String msg;
     private String value;
 
-    public ErrorDetail() {
+    public ValidationErrorDetail() {
     }
 
-    public ErrorDetail(String location, String param, String msg, String value) {
+    public ValidationErrorDetail(String location, String param, String msg, String value) {
         this.location = location;
         this.param = param;
         this.msg = msg;
