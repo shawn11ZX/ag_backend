@@ -10,7 +10,7 @@ public class ToDoItem {
     private @Id @GeneratedValue Integer id;
     private String text;
     private boolean isCompleted;
-    private Date createAt;
+    private Date createdAt;
 
     public Integer getId() {
         return id;
@@ -24,8 +24,8 @@ public class ToDoItem {
         return isCompleted;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
     public void setId(Integer id) {
@@ -40,7 +40,7 @@ public class ToDoItem {
         isCompleted = completed;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

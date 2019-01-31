@@ -1,18 +1,14 @@
 package au.com.autogeneral.swagger.integration;
 
-import au.com.autogeneral.swagger.error.ValidationAdvice;
-import au.com.autogeneral.swagger.validation.ValidateBracketsController;
 import org.json.JSONException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -23,14 +19,12 @@ public class ValidateBracketsControllerIT {
     @LocalServerPort
     private int port;
 
-    TestRestTemplate restTemplate = new TestRestTemplate();
-
-    HttpHeaders headers = new HttpHeaders();
+    final private TestRestTemplate restTemplate = new TestRestTemplate();
 
     @Test
     public void testGetValid() throws JSONException {
-
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>("", headers);
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(createURLWithPort("/tasks/validateBrackets"))
                 .queryParam("input", "[(]");
@@ -51,8 +45,8 @@ public class ValidateBracketsControllerIT {
 
     @Test
     public void testInvalid() throws JSONException {
-
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>("", headers);
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(createURLWithPort("/tasks/validateBrackets"))
                 .queryParam("input", "");

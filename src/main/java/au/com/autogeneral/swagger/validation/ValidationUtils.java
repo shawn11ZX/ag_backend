@@ -14,9 +14,7 @@ public class ValidationUtils {
                 if (stack.empty())
                     return false;
                 Character top = stack.pop();
-                if (c == '}' && top == '{' || c == ']' && top == '[' || c == ')' && top == '(' )
-                    return true;
-                return false;
+                return c == '}' && top == '{' || c == ']' && top == '[' || c == ')' && top == '(';
             }
         }
         return stack.empty();

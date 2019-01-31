@@ -1,8 +1,8 @@
 package au.com.autogeneral.swagger.bean;
 
 public class BalanceTestResult {
-    String input;
-    boolean isBalanced;
+    private String input;
+    private boolean isBalanced;
 
     public BalanceTestResult(String input, boolean isBalanced) {
         this.input = input;

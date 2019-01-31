@@ -13,10 +13,15 @@ import java.util.Date;
 
 @RestController
 public class TodoController {
-    @Autowired
-    private TodoRepository repository;
 
-    boolean isValid(String text) {
+    private final TodoRepository repository;
+
+    @Autowired
+    public TodoController(TodoRepository repository) {
+        this.repository = repository;
+    }
+
+    private boolean isValid(String text) {
         return !StringUtils.isEmpty(text) && text.length() <= 50;
     }
     @PostMapping(value = "/todo/")
@@ -27,7 +32,7 @@ public class TodoController {
         ToDoItem todo = new ToDoItem();
         todo.setText(addRequest.getText());
         todo.setIsCompleted(false);
-        todo.setCreateAt(new Date());
+        todo.setCreatedAt(new Date());
         repository.save(todo);
         return todo;
     }

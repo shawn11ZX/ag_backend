@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ValidateBracketsController {
-    static final int MAX_INPUT_TEXT_LEN = 100;
+    private static final int MAX_INPUT_TEXT_LEN = 100;
 
     @RequestMapping(value = "/tasks/validateBrackets", method = RequestMethod.GET)
     public BalanceTestResult validateBrackets(@RequestParam(name = "input") String input) {
