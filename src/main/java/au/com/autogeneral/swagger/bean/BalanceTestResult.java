@@ -1,6 +1,6 @@
-package au.com.autogeneral.swagger;
+package au.com.autogeneral.swagger.bean;
 
-public class BalanceTestResult implements IValidationResult{
+public class BalanceTestResult implements IValidationResult {
     String input;
     boolean isBalanced;
 

@@ -1,15 +1,15 @@
-package au.com.autogeneral.swagger;
+package au.com.autogeneral.swagger.bean;
 
-public class ToDoItemValidationErrorDetail {
+public class ErrorDetail {
     private String location;
     private String param;
     private String msg;
     private String value;
 
-    public ToDoItemValidationErrorDetail() {
+    public ErrorDetail() {
     }
 
-    public ToDoItemValidationErrorDetail(String location, String param, String msg, String value) {
+    public ErrorDetail(String location, String param, String msg, String value) {
         this.location = location;
         this.param = param;
         this.msg = msg;
