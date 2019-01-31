@@ -1,9 +1,9 @@
-package au.com.autogeneral.swagger.validation;
+package au.com.autogeneral.swagger.tasks;
 
 import java.util.Stack;
 
 /**
- * string balance validation algorithm
+ * string balance tasks algorithm
  *
  * Brackets in a string are considered to be balanced if the following criteria are met:
  *

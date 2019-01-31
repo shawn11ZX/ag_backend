@@ -1,6 +1,6 @@
 package au.com.autogeneral.swagger;
 
-import au.com.autogeneral.swagger.validation.ValidationUtils;
+import au.com.autogeneral.swagger.tasks.ValidationUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package au.com.autogeneral.swagger.validation;
+package au.com.autogeneral.swagger.tasks;
 
 import au.com.autogeneral.swagger.bean.BalanceTestResult;
 import au.com.autogeneral.swagger.error.ValidationException;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * implementation for validation task
+ * implementation for tasks task
  *
  * @author Shawn Chang
  */
