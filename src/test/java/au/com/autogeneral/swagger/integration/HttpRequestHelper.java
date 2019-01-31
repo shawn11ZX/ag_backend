@@ -9,6 +9,11 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 
+/**
+ * Test helper shared among @TodoControllerIT
+ *
+ *  @author Shawn Chang
+ */
 public class HttpRequestHelper {
     final private int port;
     final private TestRestTemplate restTemplate = new TestRestTemplate();

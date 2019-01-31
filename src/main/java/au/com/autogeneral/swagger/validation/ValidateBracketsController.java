@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * implementation for validation task
+ *
+ * @author Shawn Chang
+ */
 @RestController
 public class ValidateBracketsController {
     private static final int MAX_INPUT_TEXT_LEN = 100;

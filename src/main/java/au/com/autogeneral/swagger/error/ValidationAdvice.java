@@ -7,6 +7,11 @@ import au.com.autogeneral.swagger.bean.ValidationError;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * This class intercept exception and respond with error message
+ *
+ * @author Shawn Chang
+ */
 @ControllerAdvice
 public class ValidationAdvice {
 

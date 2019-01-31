@@ -21,6 +21,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 
+/**
+ * Todo related integration tests
+ *
+ *  @author Shawn Chang
+ */
 public class TodoControllerIT {
 
     @LocalServerPort

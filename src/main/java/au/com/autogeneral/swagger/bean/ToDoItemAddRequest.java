@@ -1,5 +1,11 @@
 package au.com.autogeneral.swagger.bean;
 
+/**
+ * implementation of the 'ToDoItemAddRequest' in swagger
+ *
+ *  @author Shawn Chang
+ */
+
 public class ToDoItemAddRequest {
 
     private String text;

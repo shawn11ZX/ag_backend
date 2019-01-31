@@ -12,6 +12,12 @@ import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.util.UriComponentsBuilder;
 
+/**
+ * Task related integration tests
+ *
+ *  @author Shawn Chang
+ */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ValidateBracketsControllerIT {

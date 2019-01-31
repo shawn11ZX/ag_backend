@@ -2,7 +2,27 @@ package au.com.autogeneral.swagger.validation;
 
 import java.util.Stack;
 
+/**
+ * string balance validation algorithm
+ *
+ * Brackets in a string are considered to be balanced if the following criteria are met:
+ *
+ * For every opening bracket (i.e., (, {, or [), there is a matching closing bracket (i.e., ), }, or ]) of the same
+ * type (i.e., ( matches ), { matches }, and [ matches ]). An opening bracket must appear before (to the left of) its
+ * matching closing bracket. For example, ]{}[ is not balanced.
+ *
+ * No unmatched braces lie between some pair of matched bracket. For example, ({[]}) is balanced, but {[}] and [{)]
+ * are not balanced.
+ *
+ * @author Shawn Chang
+ */
 public class ValidationUtils {
+
+    /**
+     * stack based implementation
+     * @param text
+     * @return
+     */
     public static boolean isBalanced(String text)
     {
         Stack<Character> stack = new Stack<>();

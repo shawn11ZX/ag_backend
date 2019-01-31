@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
+/**
+ * implementation of the 'ToDoItem' in swagger
+ *
+ *  @author Shawn Chang
+ */
 @Entity
 public class ToDoItem {
     private @Id @GeneratedValue Integer id;

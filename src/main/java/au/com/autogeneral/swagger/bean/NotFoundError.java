@@ -1,5 +1,10 @@
 package au.com.autogeneral.swagger.bean;
 
+/**
+ * implementation of the 'ToDoItemNotFoundError' in swagger
+ *
+ *  @author Shawn Chang
+ */
 public class NotFoundError {
     private NotFoundErrorDetail details[];
     private String name;

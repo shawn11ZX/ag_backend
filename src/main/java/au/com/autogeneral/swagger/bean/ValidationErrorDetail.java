@@ -1,5 +1,10 @@
 package au.com.autogeneral.swagger.bean;
 
+/**
+ * implementation of the details in 'ToDoItemValidationError' in swagger
+ *
+ *  @author Shawn Chang
+ */
 public class ValidationErrorDetail {
     private String location;
     private String param;

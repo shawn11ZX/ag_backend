@@ -1,5 +1,10 @@
 package au.com.autogeneral.swagger.bean;
 
+/**
+ * implementation of the 'BalanceTestResult' in swagger
+ *
+ *  @author Shawn Chang
+ */
 public class BalanceTestResult {
     private String input;
     private boolean isBalanced;

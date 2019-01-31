@@ -4,6 +4,11 @@ import au.com.autogeneral.swagger.validation.ValidationUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * ValidationUtils related unit tests
+ *
+ *  @author Shawn Chang
+ */
 public class ValidationUtilsTest {
 
     @Test
