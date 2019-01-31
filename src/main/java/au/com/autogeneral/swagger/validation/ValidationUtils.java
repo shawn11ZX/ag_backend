@@ -34,7 +34,9 @@ public class ValidationUtils {
                 if (stack.empty())
                     return false;
                 Character top = stack.pop();
-                return c == '}' && top == '{' || c == ']' && top == '[' || c == ')' && top == '(';
+                boolean b = (c == '}' && top == '{' || c == ']' && top == '[' || c == ')' && top == '(');
+                if (!b)
+                    return false;
             }
         }
         return stack.empty();

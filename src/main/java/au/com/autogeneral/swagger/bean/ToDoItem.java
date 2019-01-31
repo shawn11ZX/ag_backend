@@ -1,5 +1,7 @@
 package au.com.autogeneral.swagger.bean;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,12 +14,14 @@ import java.util.Date;
  */
 @Entity
 public class ToDoItem {
-    private @Id @GeneratedValue Integer id;
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String id;
     private String text;
     private boolean isCompleted;
     private Date createdAt;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -33,7 +37,7 @@ public class ToDoItem {
         return createdAt;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

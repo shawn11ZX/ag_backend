@@ -63,9 +63,9 @@ public class TodoControllerIT {
 
         ResponseEntity<String> responseAdd = helper.requestHttp("{\n" +
                 "  \"text\": \"Uulwi ifis halahs gag erh'ongg w'ssh.\"\n" +
-                "}", "/todo/", HttpMethod.POST);
+                "}", "/todo", HttpMethod.POST);
         JSONObject todoItem = (JSONObject)JSONParser.parseJSON(responseAdd.getBody()) ;
-        Integer id = todoItem.getInt("id");
+        String id = todoItem.getString("id");
 
         ResponseEntity<String> response = helper.requestHttp("", "/todo/" + id, HttpMethod.GET);
 
@@ -87,7 +87,7 @@ public class TodoControllerIT {
 
         ResponseEntity<String> response = helper.requestHttp("{\n" +
                 "  \"text\": \"Uulwi ifis halahs gag erh'ongg w'ssh.\"\n" +
-                "}", "/todo/", HttpMethod.POST);
+                "}", "/todo", HttpMethod.POST);
 
         String expected = "{\n" +
                 "  \"id\": 42,\n" +
@@ -109,7 +109,7 @@ public class TodoControllerIT {
                 "  \"text\": \"\"\n" +
                 "}";
 
-        String restUri = "/todo/";
+        String restUri = "/todo";
         HttpMethod method = HttpMethod.POST;
 
         ResponseEntity<String> response = helper.requestHttp(postBody, restUri, method);
@@ -137,9 +137,9 @@ public class TodoControllerIT {
 
         ResponseEntity<String> responseAdd = helper.requestHttp("{\n" +
                 "  \"text\": \"Uulwi ifis halahs gag erh'ongg w'ssh.\"\n" +
-                "}", "/todo/", HttpMethod.POST);
+                "}", "/todo", HttpMethod.POST);
         JSONObject todoItem = (JSONObject)JSONParser.parseJSON(responseAdd.getBody()) ;
-        Integer id = todoItem.getInt("id");
+        String id = todoItem.getString("id");
         String date = todoItem.getString("createdAt");
         ResponseEntity<String> response = helper.requestHttp("{\n" +
                 "  \"text\": \"aabbccdd\",\n" +
@@ -163,9 +163,9 @@ public class TodoControllerIT {
 
         ResponseEntity<String> responseAdd = helper.requestHttp("{\n" +
                 "  \"text\": \"Uulwi ifis halahs gag erh'ongg w'ssh.\"\n" +
-                "}", "/todo/", HttpMethod.POST);
+                "}", "/todo", HttpMethod.POST);
         JSONObject todoItem = (JSONObject)JSONParser.parseJSON(responseAdd.getBody()) ;
-        Integer id = todoItem.getInt("id");
+        String id = todoItem.getString("id");
         String date = todoItem.getString("createdAt");
         ResponseEntity<String> response = helper.requestHttp("{\n" +
                 "  \"text\": \"\",\n" +

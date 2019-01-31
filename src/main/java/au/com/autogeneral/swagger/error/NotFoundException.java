@@ -6,13 +6,13 @@ package au.com.autogeneral.swagger.error;
  * @author Shawn Chang
  */
 public class NotFoundException extends RuntimeException{
-    final private Integer id;
+    final private String id;
 
-    public NotFoundException(Integer id) {
+    public NotFoundException(String id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 }

@@ -18,7 +18,10 @@ public class ValidationUtilsTest {
 
     @Test
     public void testExtraNotBalanced() {
+        Assert.assertFalse(ValidationUtils.isBalanced("{[()}]"));
         Assert.assertFalse(ValidationUtils.isBalanced("("));
+
+
     }
 
     @Test
@@ -48,6 +51,6 @@ public class ValidationUtilsTest {
 
     @Test
     public void testMultipleNotBalanced() {
-        Assert.assertTrue(ValidationUtils.isBalanced("{{{}}}[()"));
+        Assert.assertFalse(ValidationUtils.isBalanced("{{{}}}[()"));
     }
 }

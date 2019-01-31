@@ -41,7 +41,7 @@ public class TodoController {
      * @param addRequest, item definition
      * @return
      */
-    @PostMapping(value = "/todo/")
+    @PostMapping(value = "/todo")
     public ToDoItem postTodo(@RequestBody ToDoItemAddRequest addRequest) {
         if (addRequest == null || !isValid(addRequest.getText())) {
             throw new ValidationException(addRequest.getText());
@@ -60,7 +60,7 @@ public class TodoController {
      * @return
      */
     @GetMapping(value = "/todo/{id}")
-    public ToDoItem getTodo(@PathVariable final Integer id) {
+    public ToDoItem patchTodo(@PathVariable final String id) {
         return repository.findById(id).orElseThrow(()-> new NotFoundException(id));
     }
 
@@ -72,13 +72,15 @@ public class TodoController {
      * @return
      */
     @PatchMapping(value = "/todo/{id}")
-    public ToDoItem getTodo(@PathVariable final Integer id, @RequestBody ToDoItemUpdateRequest updateRequest) {
-        if (updateRequest == null || !isValid(updateRequest.getText())) {
+    public ToDoItem patchTodo(@PathVariable final String id, @RequestBody ToDoItemUpdateRequest updateRequest) {
+        if (updateRequest == null || (updateRequest.hasText() && !isValid(updateRequest.getText()))) {
             throw new ValidationException(updateRequest.getText());
         }
         ToDoItem rt = repository.findById(id).orElseThrow(()-> new NotFoundException(id));
-        rt.setIsCompleted(updateRequest.isIsCompleted());
-        rt.setText(updateRequest.getText());
+        if (updateRequest.hasIsCompleted())
+            rt.setIsCompleted(updateRequest.isIsCompleted());
+        if (updateRequest.hasText())
+            rt.setText(updateRequest.getText());
         repository.save(rt);
         return rt;
     }

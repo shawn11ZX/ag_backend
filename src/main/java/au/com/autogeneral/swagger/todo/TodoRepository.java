@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Shawn Chang
  */
-public interface TodoRepository extends JpaRepository<ToDoItem, Integer> {
+public interface TodoRepository extends JpaRepository<ToDoItem, String> {
 
 }
