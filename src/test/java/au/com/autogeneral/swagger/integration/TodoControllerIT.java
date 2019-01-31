@@ -28,6 +28,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @ContextConfiguration(classes = {
         ValidationAdvice.class, TodoRepository.class})
 @SpringBootTest(classes = TodoController.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
 public class TodoControllerIT {
 
     @LocalServerPort
@@ -42,7 +43,7 @@ public class TodoControllerIT {
 
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(createURLWithPort("/todo/10000"));
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(createURLWithPort("/todo/9"));
         String uri = builder.build(false).toUriString();
         ResponseEntity<String> response = restTemplate.exchange(
                 uri,
