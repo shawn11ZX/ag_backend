@@ -1,5 +1,7 @@
 # Swagger Back End Demo by Shawn Change
 
+NOT: There are two contributors for the project: zx@wooduan.com and sure.zhang@gmail.com. Both are me. I have switch my Windows account after failed to install AWS Beanstalk (it can't deal with Chinese Windows Acount Name correctly).
+
 ## General
 - GitHub: https://github.com/shawn11ZX/auto_general_backend
 - AWS address: http://swagger-dev.us-west-2.elasticbeanstalk.com/, 
