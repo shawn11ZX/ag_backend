@@ -1,6 +1,6 @@
 # Swagger Back End Demo by Shawn Change
 
-NOT: There are two contributors for the project: zx@wooduan.com and sure.zhang@gmail.com. Both are me. I have switch my Windows account after failed to install AWS Beanstalk (it can't deal with Chinese Windows Acount Name correctly).
+NOTE: There are two contributors for the project: zx@wooduan.com and sure.zhang@gmail.com. Both are mine. I have switched my Windows account after failing to install AWS Beanstalk (it can't deal with Windows acount names with Chinese characters correctly). After swith, I happened to type in a differenct email address which caused the problem.
 
 ## General
 - GitHub: https://github.com/shawn11ZX/auto_general_backend
