@@ -1,11 +1,4 @@
-# Swagger Back End Demo by Shawn Change
 
-NOTE: There are two contributors for the project: zx@wooduan.com and sure.zhang@gmail.com. Both are mine. I have switched my Windows account after failing to install AWS Beanstalk (it can't deal with Windows acount names with Chinese characters correctly). After swith, I happened to type in a differenct email address which caused the problem.
-
-## General
-- GitHub: https://github.com/shawn11ZX/auto_general_backend
-- AWS address: http://swagger-dev.us-west-2.elasticbeanstalk.com/, 
-	e.g. http://swagger-dev.us-west-2.elasticbeanstalk.com/tasks/validateBrackets?input=aaa
 
 ## Build
 - cd to project directory
@@ -25,25 +18,3 @@ Exception defination and interception to generate HTTP error codes.
 ### package: au.com.autogeneral.swagger.bean
 JSON objects definition
 
-## Complains
-The examples in the [test description web page](https://join.autogeneral.com.au/swagger-ui/?url=/swagger.json#/) has errors.  
-
-To be more specific, according to the example, **todo id** should be of type Integer:
-```json
-{  
-  "id": 42,  
-  "text": "Uulwi ifis halahs gag erh'ongg w'ssh.",  
-  "isCompleted": false,  
-  "createdAt": "2017-10-13T01:50:58.735Z"  
-}
-```
-
-according to the integration test, **todo id** should be of type string:
-```json
- "expected": {
-  "id": "...",
-  "text": "Uulwi ifis halahs gag erh'ongg w'ssh.",
-  "isCompleted": false,
-  "createdAt": "..."
-},
-``` 
